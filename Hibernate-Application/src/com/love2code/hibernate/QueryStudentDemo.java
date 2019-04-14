@@ -37,13 +37,27 @@ public class QueryStudentDemo {
 
 			// display the students
 			displayStudents(students);
-			
+
 			// query students: lastName = 'Doe'
 			students = session.createQuery("from Student s where s.lastName='Doe'").getResultList();
 
-			System.out.println("Display students who have last name of Doe");
+			System.out.println("\n\nDisplay students who have last name of Doe");
 			displayStudents(students);
-			
+
+			// query students: lastName = 'Doe' or firstName = 'Daffy'
+			students = session.createQuery("from Student s where s.lastName='Doe' OR s.firstName = 'Daffy'").getResultList();
+
+			System.out.println("\n\nDisplay students who have last name of Doe OR first name of Daffy");
+			displayStudents(students);
+
+
+			// query students where email like '%love2code.com'
+			students = session.createQuery("from Student s where s.email LIKE '%love2code.com'").getResultList();
+
+			System.out.println("\n\nDisplay students whose email ends with love2code.com");
+			displayStudents(students);
+
+						
 			// commit transaction
 			session.getTransaction().commit();
 		} finally {
@@ -51,8 +65,9 @@ public class QueryStudentDemo {
 		}
 	}
 
-	/** 
+	/**
 	 * display student data
+	 * 
 	 * @param students
 	 */
 	private static void displayStudents(List<Student> students) {
