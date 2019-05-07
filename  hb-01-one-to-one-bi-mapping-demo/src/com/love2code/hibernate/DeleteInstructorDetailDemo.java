@@ -17,7 +17,7 @@ import com.love2code.hibernate.entity.Student;
  * @author KDavara
  *
  */
-public class GetInstructorDetailDemo {
+public class DeleteInstructorDetailDemo {
 
 	/**
 	 * @param args
@@ -38,7 +38,7 @@ public class GetInstructorDetailDemo {
 			session.beginTransaction();
             
 			//get the instructor detail object
-			int id = 299;
+			int id = 3;
 			InstructorDetail instructorDetail = session.get(InstructorDetail.class, id);
 			
 			//print the instructor detail
@@ -47,6 +47,14 @@ public class GetInstructorDetailDemo {
 			//print the associated instructor
 			System.out.println("Associated instructor "+instructorDetail.getInstructor());
 			 
+			//delete the instructor detail
+			System.out.println("Deleting instructor detail "+instructorDetail);
+			
+			//deleting only instructor detail and not an instructor
+			instructorDetail.getInstructor().setInstructorDetail(null);
+			
+			session.delete(instructorDetail);
+			
 			// commit transaction
 			session.getTransaction().commit();
 
