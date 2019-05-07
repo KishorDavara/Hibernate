@@ -3,6 +3,8 @@
  */
 package com.love2code.hibernate;
 
+import java.util.Date;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -28,7 +30,7 @@ public class ReadStudentDemo {
 
 		try {
 			// create student object
-			Student student = new Student("Daffy", "Duck", "daffy@love2code.com");
+			Student student = new Student("Daffy", "Duck", "daffy@love2code.com",new Date());
 
 			// start a transaction
 			session.beginTransaction();

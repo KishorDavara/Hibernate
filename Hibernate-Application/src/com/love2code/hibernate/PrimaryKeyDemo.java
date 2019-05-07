@@ -3,6 +3,8 @@
  */
 package com.love2code.hibernate;
 
+import java.util.Date;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -28,9 +30,9 @@ public class PrimaryKeyDemo {
 
 		try {
 			// create 3 student object
-			Student student1 = new Student("John", "Doe", "john@love2code.com");
-			Student student2 = new Student("Mary", "Public", "mary@love2code.com");
-			Student student3 = new Student("Bonita", "Pal", "bonita@love2code.com");
+			Student student1 = new Student("John", "Doe", "john@love2code.com",new Date());
+			Student student2 = new Student("Mary", "Public", "mary@love2code.com",new Date());
+			Student student3 = new Student("Bonita", "Pal", "bonita@love2code.com",new Date());
 			
 			// start a transaction
 			session.beginTransaction();
